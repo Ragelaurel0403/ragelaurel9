@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Portfolio "The Output"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #D6F1FF;
+            font-size: 18px;
+            letter-spacing: 2px; /* Adjust the value to increase or decrease spacing */
+        }
+        
+        .header {
+            background: #051923;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 30px;
+            font-family: "Arial Black", sans-serif;
+            position: fixed; /* Make header fixed */
+            width: 100%; /* Ensure header spans full width */
+            top: 0; /* Stick to the top of the page */
+            z-index: 1000; /* Ensure it stays on top of other elements */
+        }
+
+        #sidebarButton {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #sidebarButton i {
+            font-size: 24px;
+        }
+        
+        .sidebar {
+            width: 250px;
+            background: #003554;
+            color: #fff;
+            height: 100%;
+            position: fixed; /* Make sidebar fixed */
+            top: 50px; /* Adjust for header height */
+            left: -250px; /* Initially hide sidebar */
+            padding-top: 10px; /* Adjust padding */
+            transition: left 0.3s ease; /* Smooth transition animation */
+            z-index: 999; /* Ensure it appears below the header */
+        }
+        
+        .sidebar ol, .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            margin: 0;
+            padding: 10px;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+        }
+
+        .content {
+            padding: 20px;
+            margin-top: 50px; /* Adjust for header height */
+            transition: margin-left 0.3s ease; /* Smooth transition for content adjustment */
+        } 
+         
+        .Skills, .Education, .Portfolio {
+            text-align: right;
+            margin-top: 20px; /* Add space between sections */
+            padding: 20px; /* Add padding for better spacing */
+        }
+        
+        .experience, .achievements, .blog {
+            text-align: left;
+            margin-top: 20px; /* Add space between sections */
+            padding: 20px; /* Add padding for better spacing */
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 200px; /* Add space between sections */
+            background-color: #a3cef1;
+            border-radius: 10px;
+            box-shadow: ;
+        }
+
+        [class*="col-"] {
+            padding: 15px;
+        }
+
+        @media only screen and (min-width: 600px) {
+            .col-s-1 { width: 8.33%; }
+            .col-s-2 { width: 16.66%; }
+            .col-s-3 { width: 25%; }
+            .col-s-4 { width: 33.33%; }
+            .col-s-5 { width: 41.66%; }
+            .col-s-6 { width: 50%; }
+            .col-s-7 { width: 58.33%; }
+            .col-s-8 { width: 66.66%; }
+            .col-s-9 { width: 75%; }
+            .col-s-10 { width: 83.33%; }
+            .col-s-11 { width: 91.66%; }
+            .col-s-12 { width: 100%; }
+        }
+        
+        @media only screen and (min-width: 768px) {
+            .col-m-1 { width: 8.33%; }
+            .col-m-2 { width: 16.66%; }
+            .col-m-3 { width: 25%; }
+            .col-m-4 { width: 33.33%; }
+            .col-m-5 { width: 41.66%; }
+            .col-m-6 { width: 50%; }
+            .col-m-7 { width: 58.33%; }
+            .col-m-8 { width: 66.66%; }
+            .col-m-9 { width: 75%; }
+            .col-m-10 { width: 83.33%; }
+            .col-m-11 { width: 91.66%; }
+            .col-m-12 { width: 100%; }
+        }
+
+        .img-container {
+            max-width: 100%; /* Ensure container does not exceed the width of its parent */
+            overflow: hidden; /* Prevent content from spilling out */
+            margin: 0 auto; /* Center the container */
+        }
+
+        .img-container img {
+            width: 100%; /* Ensure image fills the width of its container */
+            height: 600px; /* Fixed height for uniform size */
+            object-fit: cover; /* Ensure images cover the container uniformly */
+            max-width: 100%; /* Prevent the image from exceeding the container's width */
+            border-radius: 10px; /* Optional: add border-radius for better aesthetics */
+            margin-top: 10px;
+        }
+        
+        .thank-you-section {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .thank-you-section h2 {
+            font-size: 30px;
+        }
+
+        .thank-you-section video {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <p>Rage Laurel's Website Portfolio</p>
+        <p style="font: Arial; font-size: 10px;"><i>for easier navigation click the side bar icon</i></p> 
+        <button id="sidebarButton"><i class="fas fa-bars"></i></button>
+    </div>
+    
+    <div class="sidebar" id="sidebar">
+        <ol>
+            <li><p><br></p></li>
+            <li><p>Know more about me by clicking the sections</p></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li>Contacts</li>
+        </ol>
+        <ul>
+            <li><a href="https://web.facebook.com/ragelaurel9">Facebook</a></li>
+            <li><a href="mailto:ragelaurel9@gmail.com">Email</a></li>
+            <li><a href="tel:+6392943395">Call me at (+63) 092943395</a></li>
+        </ul>
+    </div>
+    
+    <div class="content" id="content">
+        <div id="home" class="row">
+            <div class="col-s-12 col-m-8 body">
+                <p style="font-size: 30px;">About me</p>
+                <p>I'm Rage Gabrielle V. Laurel, born in Bacoor, Cavite,
+                Philippines, on April 3, 2005. Currently, I'm a dedicated computer science student. I've always been intrigued by technology, especially programming, algorithms, and computer systems. Beyond academics, I enjoy exploring AI and honing my coding skills. Excited for the journey ahead!</p>
+            </div>
+            <div class="col-s-12 col-m-4 img-container">
+                <img src="https://scontent.fmnl34-1.fna.fbcdn.net/v/t39.30808-6/435568906_7410622175696233_4979209849930973966_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGiX-xHU8nXAWBGilzAPbFZtf9P2TR2uuu1_0_ZNHa6642IIW--wYjiLRIozUPYrzFSF4bI2hscM6fxhwJHC42P&_nc_ohc=2T5FT174yLgQ7kNvgEM8sVb&_nc_zt=23&_nc_ht=scontent.fmnl34-1.fna&oh=00_AYDgG1knHjxpwmfUqw9ziYnG9LPJEv98ts6POERXkuzzhQ&oe=66558981" alt="me" class="img" width="600" height="500">
+            </div>
+        </div>
+        
+        <div id="skills" class="row">
+            <div class="col-s-12 col-m-4 img-container">
+                <img src="https://scontent.fmnl34-1.fna.fbcdn.net/v/t1.15752-9/436616828_471406632216638_2769163832473017534_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGBlYR6hPwvEC8Fa_-jkY5BFMTZiJdvCJUUxNmIl28Ilff4HqGiZE0e1jRWqxFdf-rcV7OPwYoWrnMDFBkxuL3V&_nc_ohc=6MFAOCiF6vUQ7kNvgHoOkk_&_nc_ht=scontent.fmnl34-1.fna&oh=03_Q7cD1QHZNG6BJ8aoAmqKL9YDk9xsGt0_y399eFj3E1EdKTejrQ&oe=667EDC14" alt="skills" class="img" width="600" height="500">
+            </div>
+            <div class="col-s-12 col-m-8 body Skills">
+                <p style="font-size: 30px;">Skills</p>
+                <p>I've got a handle on time management, critical thinking, communication, and teamwork skills, and I've also managed to pick up some knowledge in Java and HTML along the way.</p>
+            </div>
+        </div>
+        
+        <div id="experience" class="row">
+            <div class="col-s-12 col-m-8 body">
+                <p style="font-size: 30px;">Experience</p>
+                <p>i have an Experience as a food handler at a catering service, I have had the opportunity to develop a deep understanding of food safety protocols, refine my culinary skills through the preparation of diverse and flavorful dishes, and enhance my customer service abilities by delivering memorable dining experiences to guests. This experience has not only enriched my knowledge in the food industry but has also allowed me to cultivate a strong passion for creating exceptional culinary moments that leave a lasting impression on those I serve.</p>
+            </div>
+            <div class="col-s-12 col-m-4 img-container">
+                <img src="https://scontent.fmnl34-1.fna.fbcdn.net/v/t1.15752-9/440979593_968526805275414_710182538659202110_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHmDyS_tDaJEqHQNkL2iME7lltYj5szGQ-WW1iPmzMZDwqAnYkITgJSGia-WC5Tbfp_P1tnKtM7oCe3afn9fXKF&_nc_ohc=7Yi4jMEBWdQQ7kNvgHSumKq&_nc_ht=scontent.fmnl34-1.fna&oh=03_Q7cD1QHsa7yMqBz4lUOMMsROjwsOlhfqsfWdqcdMzDevFI5CvQ&oe=667ED48E" alt="experience" class="img" width="600" height="500">
+            </div>
+        </div>
+        
+        <div id="education" class="row">
+            <div class="col-s-12 col-m-4 img-container">
+                <img src="https://scontent.fmnl34-1.fna.fbcdn.net/v/t1.15752-9/435921019_439967108625246_3996724084276209052_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEHG5IPu8hXn06ruAkM57WMO1_otYeYnaU7X-i1h5idpX7ZWeue1JyEr0l88rS0SVkAFpj6xAJ9HWMYW41ovryY&_nc_ohc=36kiMpufDV8Q7kNvgEWR5nP&_nc_ht=scontent.fmnl34-1.fna&oh=03_Q7cD1QFeJbyBpQ34ULMqEeH5AFMTogyYavGUPhq43LYUxSmRZw&oe=667EE721" alt="education" class="img" width="600" height="500">
+            </div>
+            <div class="col-s-12 col-m-8 body Education">
+                <p style="font-size: 30px;">Education</p>
+                <p>My educational journey has been a diverse and enriching experience, starting from Elementary at Aniban Central School and progressing through High School at Bacoor National High School - Tabing Dagat. I furthered my studies during Senior High School at St. Matthew Academy of Cavite, where I specialized in Technical Vocational Livelihood. Currently, I am a dedicated first-year Computer Science student at Cavite State University Bacoor Campus, where I am eager to expand my knowledge and skills in the field of technology.</p>
+            </div>
+        </div>
+        
+        <div id="achievements" class="row">
+            <div class="col-s-12 col-m-8 body Achievements">
+                <p style="font-size: 30px;">Achievements</p>
+                <p>With High Honor (2023)<br>
+                Best Research (2023)<br>
+                Culinary Artist Awardee<br>
+                Leadership Awardee<br> 
+                Academic Excellence in Communication Arts</p>
+            </div>
+            <div class="col-s-12 col-m-4 img-container">
+                <img src="https://scontent.fmnl34-1.fna.fbcdn.net/v/t39.30808-6/354589435_6328460413912420_5414088074461607100_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeG7F9Mn13o6rbp_zglnkc7iU0GuHfA72wJTQa4d8DvbAgOkK59Kf1GCAKw-5RSISIJkIlpWRyzgA71a84crXIyY&_nc_ohc=S9csn7mux7sQ7kNvgEsp9_k&_nc_zt=23&_nc_ht=scontent.fmnl34-1.fna&oh=00_AYB_d3WLhM5g0ZB7DlaoMrX_dc1DzViwjGUrUmAvXVhagw&oe=665D637F" alt="achievements" class="img" width="600" height="500">
+            </div>
+        </div>
+        
+        <div id="portfolio" class="row">
+            <div class="col-s-12 col-m-4 img-container">
+                <img src="https://scontent.fmnl34-1.fna.fbcdn.net/v/t1.15752-9/406253947_1009141333477468_7997454221824576518_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEgQyLOozBx4f2zUMGIo5CR6y0DqoBBIVLrLQOqgEEhUlCbrm9KscslmQLwXi694wI8FiujtUyE_P8nXVC2fjp_&_nc_ohc=K_OFeA47oFwQ7kNvgHybajD&_nc_ht=scontent.fmnl34-1.fna&oh=03_Q7cD1QEVnO2fTUZ0nLez3MfztmUYB9-idH9Pyh0axwS33EVrJA&oe=667EDA1F" alt="portfolio" class="img" width="600" height="500">
+            </div>
+            <div class="col-s-12 col-m-8 body Portfolio">
+                <p style="font-size: 30px;">Portfolio</p>
+                <p>Sadly. this website is my first portfolio but im looking forward for more projects to come!</p>
+            </div>
+        </div>
+        
+        <div id="blog" class="row">
+            <div class="col-s-12 col-m-8 body Blog">
+                <p style="font-size: 30px;">Blog</p>
+                <p>let me share a bit about who I am.
+                    I'm someone who finds immense joy in the simple pleasures of life, whether it's delving into the intricacies of coding or experimenting with new recipes in the kitchen. With a positive attitude and an open heart, I approach each day with a sense of passion and purpose.
+                    Family and friends are my rock, providing unwavering support and serving as constant sources of inspiration. Their belief in me fuels my drive to push boundaries and explore new horizons.
+                    In social settings, I thrive on meaningful connections and engaging conversations. I value the opportunity to learn from others and collaborate on projects that make a difference.
+                    Professionally, I've gained valuable experience in various domains. From honing my culinary skills and perfecting the art of customer service in the food industry to tackling complex challenges and delving into the world of technology in computer science, each experience has shaped me into the person I am today.
+                    As I navigate through life's adventures, I'm guided by a simple mantra: to make the most of each moment and leave a positive impact wherever I go. So, thanks for taking the time to get to know me a little better. Feel free to explore the rest of my website, and don't hesitate to reach out if you have any questions or just want to say hi!
+                </p>
+            </div>
+            <div class="col-s-12 col-m-4 img-container">
+                <img src="https://scontent.fmnl34-1.fna.fbcdn.net/v/t1.15752-9/436514401_409365992071642_1861142761389129692_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeF9fce_Kj2GsXqQ9hfuoQzo78L_ekWPlz3vwv96RY-XPS1p0dR9HYSSVqgtyJPFnWtpDvlIn0HFPo8e_13tFb4x&_nc_ohc=2nBkKvVGaBMQ7kNvgFUDH9t&_nc_ht=scontent.fmnl34-1.fna&oh=03_Q7cD1QGlsesbB5dvWkB7gzUafksMm2wkTajF0WXYiII2dj8P_w&oe=667EB8A5" alt="blog" class="img" width="600" height="500">
+            </div>
+        </div>
+    </div>
+    
+    <div class="thank-you-section">
+            <h2>Thank You for Visiting!</h2>
+            <p>watch this thank you greeting from the owner of the website</p>
+            <video controls>
+                <source src="https://video.xx.fbcdn.net/v/t42.3356-2/446335935_7632520780173289_1360573442842948750_n.mp4?_nc_cat=101&ccb=1-7&_nc_sid=4f86bc&_nc_eui2=AeEp0ycCMKfyw3EXQaZKGWj_CJlWSTtmqU8ImVZJO2apTxUy-02z3rZD9KhDpmM2APTQEEb67xYzrQNjQY_qWfAl&_nc_ohc=ueK3IXziMtoQ7kNvgGLpAfX&_nc_ht=scontent.fmnl34-1.fna&oh=03_Q7cD1QFWS-fKdje8MBAM7Bkb5CFxsxqxtM3crQKHXgUfU3Ub-w&oe=665970B5&dl=1" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('sidebarButton').addEventListener('click', function() {
+            var sidebar = document.getElementById('sidebar');
+            if (sidebar.style.left === '-250px') {
+                sidebar.style.left = '0';
+                document.getElementById('content').style.marginLeft = '250px'; // Adjust content when sidebar is shown
+            } else {
+                sidebar.style.left = '-250px';
+                document.getElementById('content').style.marginLeft = '0'; // Reset content when sidebar is hidden
+            }
+        });
+    </script>
+</body>
+</html>
+
